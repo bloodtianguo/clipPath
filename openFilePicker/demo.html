@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>不使用input file实现上传</title>
+</head>
+
+<body>
+	<button id="button">选择图片</button>
+	<p id="output"></p>
+</body>
+<script>
+	button.addEventListener('click', async function () {
+		// 打开文件
+		const arrFileHandle = await window.showOpenFilePicker({
+			types: [{
+				accept: {
+					'image/*': ['.png', '.gif', '.jpeg', '.jpg', '.webp']
+				}
+			}],
+			// 可以选择多个图片
+			multiple: true
+		});
+
+		// 遍历选择的文件
+		for (const fileHandle of arrFileHandle) {
+			// 获取文件内容
+			const fileData = await fileHandle.getFile();
+			// 读文件数据
+			const buffer = await fileData.arrayBuffer();
+			// 转成Blod url地址
+			let src = URL.createObjectURL(new Blob([buffer]));
+			//此处对接上传API即可实现上传
+			// 在页面中显示
+			output.insertAdjacentHTML('beforeend', `<img src="${src}">`);//显示已经选择的图片
+		}
+	});
+</script>
+
+</html>
