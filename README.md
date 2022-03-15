@@ -1,15 +1,23 @@
-|-- undefined
-    |-- README.md
-    |-- clipPath ==>快捷复制
+|-- clipPath
+    |-- clipPath
     |   |-- clipPath.html
     |   |-- clipPath.js
     |   |-- hpic4244_s.jpg
     |   |-- README.md
-    |-- copy-text ==>快捷复制
+    |-- copy-text
     |   |-- copy-text.html
     |   |-- copyText.js
-    |   |-- README.md
     |-- openFilePicker
+    |   |-- demo.html
+    |   |-- README.md
+    |   |-- tmpA1FA.png
+    |-- parabola
+    |   |-- demo.html
+    |   |-- parabola.js
+    |-- test-show
+    |   |-- favicon.ico
+    |   |-- show.html
+    |   |-- testKey.html
+    |-- waveSurfer
+        |-- Damjan Mravunac - False God.mp3
         |-- demo.html
-        |-- README.md
-        |-- tmpA1FA.png

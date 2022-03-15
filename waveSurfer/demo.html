@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>WaveSurfer</title>
+	<style>
+		:root {
+			--color-matching: dark;
+			color-scheme: var(--color-matching);
+		}
+
+		#waveform {
+			width: 100%;
+			height: 150px;
+			border: 1px solid #ffffff;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="waveform"></div>
+	<button onclick="play()">play/pause</button>
+</body>
+<script src="https://unpkg.com/wavesurfer.js"></script>
+<script>
+	var wavesurfer = WaveSurfer.create({
+		container: '#waveform',
+		waveColor: '#eeeeee',
+		progressColor: '#ffffff',
+		// splitChannels: true,
+		forceDecode: true,
+		barWidth: 3,
+	});
+	wavesurfer.load('Damjan Mravunac - False God.mp3');
+	function play () {
+		wavesurfer.playPause();
+	}
+</script>
+
+</html>

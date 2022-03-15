@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>测试code问题</title>
+	<style>
+		body {
+			-webkit-display: flex;
+			display: flex;
+		}
+
+		.flex {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+
+		.flex-left {
+			flex: 1;
+			flex-grow: 1;
+			-webkit-flex: 1;
+			-webkit-flex-grow: 1;
+		}
+
+		.flex-right {
+			flex: 2;
+			flex-grow: 2;
+			-webkit-flex: 2;
+			-webkit-flex-grow: 2;
+		}
+
+		#test-target {
+			display: block;
+			width: 100%;
+			margin-bottom: 10px;
+			resize: none;
+		}
+
+		#console-log {
+			overflow: auto;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="flex flex-left">
+		<textarea rows="5" id="test-target"></textarea>
+		<button id="btn-clear-console">清空控制台</button>
+	</div>
+	<div class="flex flex-right">
+		<div id="console-log"></div>
+	</div>
+	<script src="main.js"></script>
+</body>
+<script>
+	let textarea = document.getElementById('test-target'),
+		consoleLog = document.getElementById('console-log'),
+		btnClearConsole = document.getElementById('btn-clear-console');
+
+	function logMessage (message) {
+		let p = document.createElement('p');
+		p.appendChild(document.createTextNode(message));
+		consoleLog.appendChild(p);
+	}
+
+	textarea.addEventListener('keydown', (e) => {
+		console.log("code", e.code, e.keyCode);
+		if (!e.repeat)
+			logMessage(`第一个 keydown 事件。key 属性的值为"${e.key}"`);
+		else
+			logMessage(`keydown 事件重复。key 属性的值为"${e.key}"`);
+	});
+
+	textarea.addEventListener('beforeinput', (e) => {
+		logMessage(`beforeinput 事件。你准备输入"${e.data}"`);
+	});
+
+	textarea.addEventListener('input', (e) => {
+		logMessage(`input 事件。你刚刚输入了"${e.data}"`);
+	});
+
+	textarea.addEventListener('keyup', (e) => {
+		logMessage(`keyup 事件。key 属性的值为"${e.key}"`);
+	});
+
+	btnClearConsole.addEventListener('click', (e) => {
+		let child = consoleLog.firstChild;
+		while (child) {
+			consoleLog.removeChild(child);
+			child = consoleLog.firstChild;
+		}
+	});
+</script>
+
+</html>
