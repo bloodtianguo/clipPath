@@ -55,6 +55,7 @@ var copyText = function (button, content) {
 		return;
 	}
 
+
 	// 事件绑定
 	button.addEventListener('click', function (event) {
 		var strCopy = content;

@@ -1,5 +1,7 @@
 # 使用方式
 
+> 抛物线 JS
+
 ```JavaScript
 /*引入js*/
 funParabola(element, target, options);
@@ -17,7 +19,7 @@ funParabola(element, target, options);
 
 ---
 
-# demo 中实现点击点击页面将物体抛向置顶盒子
+# demo 中实现点击点击页面将物体抛向指定盒子
 
 ```JavaScript
 /* 元素 */

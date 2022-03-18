@@ -1,0 +1,22 @@
+{
+  "name": "node-test",
+  "version": "1.0.0",
+  "description": "node-test",
+  "author": "",
+  "scripts": {
+    "server": "node server",
+    "cluster": "node cluster",
+    "died":"node died"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "engines": {
+    "node": ">=8.9",
+    "npm": ">= 3.0.0"
+  },
+  "license": "MIT"
+}
